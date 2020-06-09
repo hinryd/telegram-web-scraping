@@ -33,7 +33,7 @@ async function example() {
       .wait(until.elementLocated(By.xpath(numberInputX)))
       .sendKeys(phoneNum);
 
-    // get name and memberCounts
+    // push info to array 'data'
     for (let i = 1; i < 500; i++) {
       await d.wait(until.elementLocated(By.xpath(convoX(i)))).click();
       const diff = await d
@@ -55,7 +55,7 @@ async function example() {
       }
     }
 
-    // log data
+    // log and export data to csv
     const csv = Papa.unparse(data);
     console.log(csv);
     fs.writeFile('g.csv', csv, (err) => {
