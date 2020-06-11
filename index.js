@@ -6,8 +6,8 @@ const fs = require('fs');
 async function example() {
   const d = await new Builder().forBrowser('firefox').build();
   const data = [];
-  const countryCode = 'process.env.COUNTRY_CODE';
-  const phoneNum = 'process.env.PHONE_NUMBER';
+  const countryCode = process.env.COUNTRY_CODE;
+  const phoneNum = process.env.PHONE_NUMBER;
 
   const countryCodeInputX =
     '/html/body/div[1]/div/div[2]/div[2]/form/div[2]/div[1]/input';
@@ -34,8 +34,8 @@ async function example() {
       .sendKeys(phoneNum);
 
     // push info to array 'data'
-    for (let i = 1; i < 500; i++) {
-      await d.wait(until.elementLocated(By.xpath(convoX(i)))).click();
+    for (let i = 1; i < 307; i++) {
+      await d.wait(until.elementLocated(By.xpath(convoX(i))), 100000).click();
       const diff = await d
         .wait(until.elementLocated(By.xpath(memberCountX)))
         .getText();
