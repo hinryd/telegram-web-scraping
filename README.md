@@ -1,6 +1,6 @@
 # Telegram Web Scraping
 
-Extract information from Telegram Web, using Node. Conditioned on only channels.
+Extract information from Telegram Web, using selenium-webdriver. Conditioned on only channels.
 
 ## To-do
 
